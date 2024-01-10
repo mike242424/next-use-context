@@ -1,6 +1,5 @@
 import React from 'react';
 import Component3 from './Component3';
-import Component4 from './Component4';
 
 const Component2 = () => {
   return (
@@ -9,7 +8,7 @@ const Component2 = () => {
         <Component3 />
       </div>
       <div className="m-12">
-        <Component4 />
+        <Component3 />
       </div>
     </div>
   );

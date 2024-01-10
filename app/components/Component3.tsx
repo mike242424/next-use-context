@@ -1,28 +1,26 @@
 import React, { useContext } from 'react';
-import Component4 from './Component4';
 import { ThemeContext } from '../context/DataContext';
 
-const Component3 = () => {
+const Component4 = () => {
   const { theme, handleTheme } = useContext(ThemeContext);
+
+  const handleClick = () => {
+    document.body.style.backgroundColor = theme === 'light' ? 'black' : 'white';
+    handleTheme();
+  };
+
   return (
-    <div>
-      {theme === 'light' ? (
-        <button
-          onClick={handleTheme}
-          className="p-4 bg-black text-white rounded"
-        >
-          Dark
-        </button>
-      ) : (
-        <button
-          onClick={handleTheme}
-          className="p-4 bg-blue-500 text-black rounded"
-        >
-          Light
-        </button>
-      )}
+    <div className="text-left">
+      <button
+        onClick={handleClick}
+        className={`p-4 rounded
+          ${theme === 'light' ? 'bg-black text-white' : 'bg-white text-black'}
+        `}
+      >
+        {theme === 'light' ? 'Light Mode' : 'Dark Mode'}
+      </button>
     </div>
   );
 };
 
-export default Component3;
+export default Component4;
