@@ -1,4 +1,4 @@
-import { ReactNode, createContext, useState } from 'react';
+import { ReactNode, createContext, useContext, useState } from 'react';
 import { Theme } from '../interfaces/Theme';
 
 export const ThemeContext = createContext({
@@ -21,3 +21,21 @@ const ThemeProvider = ({ children }: { children: ReactNode }) => {
 };
 
 export default ThemeProvider;
+
+// custom hook to get theme
+export const useTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useTheme must be used within a ThemeProvider');
+  }
+  return context.theme;
+};
+
+// custom hook to change theme
+export const useSetTheme = () => {
+  const context = useContext(ThemeContext);
+  if (!context) {
+    throw new Error('useSetTheme must be used within a ThemeProvider');
+  }
+  return context.handleTheme;
+};

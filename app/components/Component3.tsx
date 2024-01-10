@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { ThemeContext } from '../context/DataContext';
+import { useSetTheme, useTheme } from '../context/DataContext';
 
 const Component4 = () => {
-  const { theme, handleTheme } = useContext(ThemeContext);
+  const theme = useTheme();
+  const handleTheme = useSetTheme();
 
   const handleClick = () => {
     document.body.style.backgroundColor = theme === 'light' ? 'black' : 'white';
